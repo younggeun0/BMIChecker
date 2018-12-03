@@ -20,7 +20,7 @@ public class Run {
 				System.out.println("-------------------------------------------------");
 				System.out.print("BMI 계산하기(1) 종료(0) > ");
 				
-				flag = Integer.parseInt(sc.nextLine());
+				flag = Integer.parseInt(sc.next());
 
 				switch (flag) {
 				case 1:
@@ -29,7 +29,7 @@ public class Run {
 					System.out.print("몸무게를 입력해주세요 : ");
 					weight = sc.nextDouble();
 					BMIChecker.printResult(BMIChecker.bmiCalc(height, weight));
-					System.exit(0);
+					continue;
 				case 0:
 					sc.close();
 					System.exit(0);
@@ -37,7 +37,6 @@ public class Run {
 					System.out.println("\n** BMI check(1) 또는 종료(0)만 입력가능합니다.**\n");
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
 				System.out.println("\n**숫자만 입력가능합니다. 다시 시도해주세요.**\n");
 			}
 		}
