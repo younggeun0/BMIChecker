@@ -7,3 +7,5 @@
 
 * 여러명 반복 처리
 * 데이터 저장, 파일출력 
+
+![01](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi01.PNG?raw=true)
