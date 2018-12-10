@@ -6,8 +6,13 @@
 
 ![01](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi01.PNG?raw=true)
 
-### 추가구현 과제
+* 2018-12-10
+ * java AWT를 이용한 GUI 구현
+ 
+![02](https://github.com/younggeun0/younggeun0.github.io/raw/master/_posts/img/toyProjects/bmi02.PNG?raw=true)
 
+
+### 추가구현 과제
 * GUI 구현
 * 히스토리 구현
 * 파일출력 구현
