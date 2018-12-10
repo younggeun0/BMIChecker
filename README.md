@@ -7,7 +7,7 @@
 ![01](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi01.PNG?raw=true)
 
 * 2018-12-10
- * java AWT를 이용한 GUI 구현
+  * java AWT를 이용한 GUI 구현
  
 ![02](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi02.png?raw=true)
 
