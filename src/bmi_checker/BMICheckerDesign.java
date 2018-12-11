@@ -5,12 +5,17 @@ import java.awt.Frame;
 import java.awt.Label;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class BMICheckerAwtGUI extends Frame {
+public class BMICheckerDesign extends Frame {
 
-	public BMICheckerAwtGUI() {
+	private TextField tfHeight;
+	private TextField tfWeight;
+
+	public BMICheckerDesign() {
 
 		super("BMI Checker");
 		Label lblInfo = new Label("BMI란?");
@@ -25,8 +30,8 @@ public class BMICheckerAwtGUI extends Frame {
 		Button btnCal = new Button("계산");
 		Button btnExit = new Button("종료");
 		
-		TextField tfHeight = new TextField();
-		TextField tfWeight = new TextField();
+		tfHeight = new TextField();
+		tfWeight = new TextField();
 		
 		lblInfo.setBounds(15,40, 40, 20);
 		add(lblInfo);
@@ -52,8 +57,15 @@ public class BMICheckerAwtGUI extends Frame {
 		btnExit.setBounds(255, 230, 80, 40);
 		add(btnExit);
 		
+		btnExit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
 		setLayout(null);
-		// setResizable(false);
+		setResizable(false);
 		setBounds(400, 250, 350, 290);
 		setVisible(true);
 		addWindowListener(new WindowAdapter() {
@@ -63,8 +75,15 @@ public class BMICheckerAwtGUI extends Frame {
 			}
 		});
 	}
+	
+	public TextField getTfHeight() {
+		return tfHeight;
+	}
+	public TextField getTfWeight() {
+		return tfWeight;
+	}
 
 	public static void main(String[] args) {
-		new BMICheckerAwtGUI();
+		new BMICheckerDesign();
 	}
 }
