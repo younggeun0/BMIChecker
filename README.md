@@ -14,7 +14,7 @@
 ![03](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi03.png?raw=true)
 
 * 2018-12-11
-  * awt 종료버튼 event처리 
+  * 종료버튼 event처리 
 
 ### 추가구현 과제
 * swing을 이용한 GUI 구현 
