@@ -1,6 +1,6 @@
 package bmi_checker;
 
-public class BMIChecker {
+public class ConsoleBMIChecker {
 	/*
 	* BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))
 	* 산출된 값 18.5 이하면 저체중, 18.5~23은 정상, 23~25는 과체중, 25~30은 비만, 30이상은 고도비만

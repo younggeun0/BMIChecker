@@ -2,7 +2,7 @@ package bmi_checker;
 
 import java.util.Scanner;
 
-public class Run {
+public class ConsoleRun {
 
 	public static void main(String[] args) {
 
@@ -28,7 +28,7 @@ public class Run {
 					height = sc.nextDouble();
 					System.out.print("몸무게를 입력해주세요 : ");
 					weight = sc.nextDouble();
-					BMIChecker.printResult(BMIChecker.bmiCalc(height, weight));
+					ConsoleBMIChecker.printResult(ConsoleBMIChecker.bmiCalc(height, weight));
 					continue;
 				case 0:
 					sc.close();

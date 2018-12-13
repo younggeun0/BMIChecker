@@ -5,30 +5,32 @@ import java.awt.Frame;
 import java.awt.Label;
 import java.awt.TextArea;
 import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class BMICheckerDesign extends Frame {
+@SuppressWarnings("serial")
+public class AWTDesign extends Frame {
 
 	private TextField tfHeight;
 	private TextField tfWeight;
+	private Button btnCal, btnExit;
+	private TextArea taInfo;
+	private Label lblInfo;
 
-	public BMICheckerDesign() {
+	public AWTDesign() {
 
 		super("BMI Checker");
-		Label lblInfo = new Label("BMI란?");
+		lblInfo = new Label("BMI란?");
 		Label lblHeight = new Label("키(cm) : ");
 		Label lblWeight = new Label("몸무게(kg) : ");
-		TextArea taInfo = new TextArea(
+		taInfo = new TextArea(
 				"비만 계산 방법은 신체질량지수인 BMI(Body Mass \nIndex)에 "
 				+ "근거한방식으로 BMI지수= 몸무게(kg) ÷ (\n신장(m) × 신장(m))입니다. "
 				+ "산출된 값이 18.5 이하면 \n저체중, 18.5~23은 정상, 23~25는 과체중, "
 				+ "25~30은\n 비만, 30이상은 고도비만으로 나누어집니다.", 10, 10);
 		taInfo.setEditable(false);
-		Button btnCal = new Button("계산");
-		Button btnExit = new Button("종료");
+		btnCal = new Button("계산");
+		btnExit = new Button("종료");
 		
 		tfHeight = new TextField();
 		tfWeight = new TextField();
@@ -57,23 +59,15 @@ public class BMICheckerDesign extends Frame {
 		btnExit.setBounds(255, 230, 80, 40);
 		add(btnExit);
 		
-		btnExit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
+		AWTEvt eventHandler = new AWTEvt(this);
+		btnCal.addActionListener(eventHandler);
+		btnExit.addActionListener(eventHandler);
+		addWindowListener(eventHandler);
 		
 		setLayout(null);
 		setResizable(false);
 		setBounds(400, 250, 350, 290);
 		setVisible(true);
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				dispose();
-			}
-		});
 	}
 	
 	public TextField getTfHeight() {
@@ -82,8 +76,16 @@ public class BMICheckerDesign extends Frame {
 	public TextField getTfWeight() {
 		return tfWeight;
 	}
-
-	public static void main(String[] args) {
-		new BMICheckerDesign();
+	public Button getBtnCal() {
+		return btnCal;
+	}
+	public Button getBtnExit() {
+		return btnExit;
+	}
+	public TextArea getTaInfo() {
+		return taInfo;
+	}
+	public Label getLblInfo() {
+		return lblInfo;
 	}
 }
