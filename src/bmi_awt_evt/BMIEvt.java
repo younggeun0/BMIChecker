@@ -1,37 +1,41 @@
-package bmi_checker;
+package bmi_awt_evt;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class AWTEvt extends WindowAdapter implements ActionListener {
+import bmi_awt_view.BMIResult;
+import bmi_awt_view.BMIView;
 
-	private AWTDesign design;
+public class BMIEvt extends WindowAdapter implements ActionListener {
+
+	private BMIView bv;
 	
-	public AWTEvt(AWTDesign design) {
-		this.design = design;
+	public BMIEvt(BMIView bv) {
+		this.bv = bv;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == design.getBtnCal()) {
+		if (e.getSource() == bv.getBtnCal()) {
 			bmiCal();
 		}
-		if (e.getSource() == design.getBtnExit()) {
-			design.dispose();
+		if (e.getSource() == bv.getBtnExit()) {
+			bv.dispose();
 		}
 	}
 	
-	public void bmiCal() {
+	public void bmiCal() {		
 		double height = 0, weight = 0;
 
-		if (!(design.getTfHeight().getText().isEmpty() 
-				|| design.getTfWeight().getText().isEmpty())) {
+		if (!(bv.getTfHeight().getText().isEmpty() 
+				|| bv.getTfWeight().getText().isEmpty())) {
 		
-		height = Double.valueOf(design.getTfHeight().getText())/100;
-		weight = Double.valueOf(design.getTfWeight().getText());
+		height = Double.valueOf(bv.getTfHeight().getText())/100;
+		weight = Double.valueOf(bv.getTfWeight().getText());
 		
 			double bmiResult = 0;
 			String textResult = null;
@@ -49,8 +53,13 @@ public class AWTEvt extends WindowAdapter implements ActionListener {
 			} else if(bmiResult<18.5) {
 				textResult = "저체중입니다.";
 			}
-			design.getLblInfo().setText("결과");
-			design.getTaInfo().setText(textResult);
+
+			new BMIResult(bv, textResult);
 		}
+	}
+	
+	@Override
+	public void windowClosing(WindowEvent e) {
+		bv.dispose();
 	}
 }

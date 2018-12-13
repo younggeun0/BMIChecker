@@ -1,4 +1,4 @@
-package bmi_checker;
+package bmi_console;
 
 public class ConsoleBMIChecker {
 	/*

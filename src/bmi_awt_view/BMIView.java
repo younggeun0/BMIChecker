@@ -1,4 +1,4 @@
-package bmi_checker;
+package bmi_awt_view;
 
 import java.awt.Button;
 import java.awt.Frame;
@@ -8,8 +8,10 @@ import java.awt.TextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import bmi_awt_evt.BMIEvt;
+
 @SuppressWarnings("serial")
-public class AWTDesign extends Frame {
+public class BMIView extends Frame {
 
 	private TextField tfHeight;
 	private TextField tfWeight;
@@ -17,7 +19,7 @@ public class AWTDesign extends Frame {
 	private TextArea taInfo;
 	private Label lblInfo;
 
-	public AWTDesign() {
+	public BMIView() {
 
 		super("BMI Checker");
 		lblInfo = new Label("BMI¶õ?");
@@ -59,7 +61,7 @@ public class AWTDesign extends Frame {
 		btnExit.setBounds(255, 230, 80, 40);
 		add(btnExit);
 		
-		AWTEvt eventHandler = new AWTEvt(this);
+		BMIEvt eventHandler = new BMIEvt(this);
 		btnCal.addActionListener(eventHandler);
 		btnExit.addActionListener(eventHandler);
 		addWindowListener(eventHandler);
