@@ -30,5 +30,5 @@
 * swing을 이용한 GUI 구현 
 * 히스토리 구현
 * 파일출력 구현
-* 메뉴바를 이용 기존 toyProjectLotto와 
+* 메뉴바를 이용 기존 toyProjectLotto와 통합처리
 
