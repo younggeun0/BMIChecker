@@ -21,13 +21,23 @@
     * 키, 몸무게 입력 후 계산버튼 클릭시 라벨값 변경, TextArea에 계산결과에 해당하는 결과 
   * 클래스다이어그램과 결과창
   
+![05](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi05.png)
+
 ![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png)
 
-![05](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi05.png)
+* 2018-12-13
+  * Dialog를 사용한 결과출력 구현
+  * 패키지를 run, view, event로 분리했음
+    * Dialog 작업을 위한 클래스 추가 생성(BMIResult, BMIResultEvt)
+    * 계산버튼 클릭 시 연산작업 후 결과값을 Dialog에게 전달해서 결과 출력
+
+![06](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi06.png)
+
+![07](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi07.png)
+
 
 
 ### 추가구현 과제
-* 결과를 Dialog를 이용하여 구현
 * swing을 이용한 GUI 구현 
 * 히스토리 구현
 * 파일출력 구현
