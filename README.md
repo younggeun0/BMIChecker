@@ -18,6 +18,7 @@
 
 * 2018-12-13
   * GUI 디자인(Frame)과 이벤트처리(Listener 인터페이스들) 분리 구현
+    * 키, 몸무게 입력 후 계산버튼 클릭시 라벨값 변경, TextArea에 계산결과에 해당하는 결과 
   * 클래스다이어그램과 결과창
   
 ![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png)
