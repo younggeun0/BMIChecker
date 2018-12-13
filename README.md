@@ -16,6 +16,15 @@
 * 2018-12-11
   * 종료버튼 event처리 
 
+* 2018-12-13
+  * GUI 디자인과 이벤트처리 분리 구현
+  * 클래스다이어그램과 결과창
+  
+![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png)
+
+![05](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi05.png)
+
+
 ### 추가구현 과제
 * swing을 이용한 GUI 구현 
 * 히스토리 구현
