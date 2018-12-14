@@ -1,4 +1,4 @@
-package bmi_console;
+package console;
 
 import java.util.Scanner;
 

@@ -1,11 +1,11 @@
-package bmi_swing_evt;
+package wing_evt;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import bmi_swing_view.BMIView;
+import swing_view.BMIView;
 
 public class BMIEvt implements ActionListener {
 

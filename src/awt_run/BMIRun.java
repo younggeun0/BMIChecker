@@ -1,9 +1,9 @@
-package bmi_swing_run;
+package awt_run;
 
-import bmi_swing_view.BMIView;
+import awt_view.BMIView;
 
 public class BMIRun {
-	
+
 	public static void main(String[] args) {
 		new BMIView();
 	}

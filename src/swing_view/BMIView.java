@@ -1,4 +1,4 @@
-package bmi_swing_view;
+package swing_view;
 
 import java.awt.Button;
 import java.awt.Label;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import bmi_swing_evt.BMIEvt;
+import wing_evt.BMIEvt;
 
 public class BMIView extends JFrame {
 

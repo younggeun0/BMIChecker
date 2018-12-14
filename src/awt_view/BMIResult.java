@@ -1,10 +1,10 @@
-package bmi_awt_view;
+package awt_view;
 
 import java.awt.Button;
 import java.awt.Dialog;
 import java.awt.Label;
 
-import bmi_awt_evt.BMIResultEvt;
+import awt_evt.BMIResultEvt;
 
 public class BMIResult extends Dialog {
 	

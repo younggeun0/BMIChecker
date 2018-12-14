@@ -1,4 +1,4 @@
-package bmi_awt_view;
+package awt_view;
 
 import java.awt.Button;
 import java.awt.Frame;
@@ -8,7 +8,7 @@ import java.awt.TextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import bmi_awt_evt.BMIEvt;
+import awt_evt.BMIEvt;
 
 @SuppressWarnings("serial")
 public class BMIView extends Frame {

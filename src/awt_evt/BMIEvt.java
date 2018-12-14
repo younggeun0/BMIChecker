@@ -1,4 +1,4 @@
-package bmi_awt_evt;
+package awt_evt;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,8 @@ import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import bmi_awt_view.BMIResult;
-import bmi_awt_view.BMIView;
+import awt_view.BMIResult;
+import awt_view.BMIView;
 
 public class BMIEvt extends WindowAdapter implements ActionListener {
 
