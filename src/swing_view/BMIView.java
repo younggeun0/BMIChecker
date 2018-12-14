@@ -1,10 +1,5 @@
 package swing_view;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.TextArea;
-import java.awt.TextField;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,8 +19,8 @@ public class BMIView extends JFrame {
 		
 		super("BMI Checker");
 		jlInfo = new JLabel("BMI란?");
-		Label lblHeight = new Label("키(cm) : ");
-		Label lblWeight = new Label("몸무게(kg) : ");
+		JLabel jlHeight = new JLabel("키(cm) : ");
+		JLabel jlWeight = new JLabel("몸무게(kg) : ");
 		jtaInfo = new JTextArea(
 				"비만 계산 방법은 신체질량지수인 BMI(Body Mass Index)에 "
 				+ "근거한방식으로 BMI지수= 몸무게(kg) ÷ (신장(m) × 신장(m))입니다. "
@@ -46,11 +41,11 @@ public class BMIView extends JFrame {
 		jtaInfo.setBounds(15,40,320, 90);
 		add(jtaInfo);
 		
-		lblHeight.setBounds(36, 160, 50, 20);
-		add(lblHeight);
+		jlHeight.setBounds(36, 160, 50, 20);
+		add(jlHeight);
 		
-		lblWeight.setBounds(15, 185, 70, 20);
-		add(lblWeight);
+		jlWeight.setBounds(15, 185, 70, 20);
+		add(jlWeight);
 		
 		jtfHeight.setBounds(100, 160, 80, 20);
 		add(jtfHeight);
