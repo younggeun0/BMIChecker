@@ -4,7 +4,7 @@
   * Java 학습용 toyProject BMI지수 계산기
   * 키와 몸무게를 입력받아 해당 점수에 해당하는 결과를 출력
 
-![01](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi01.PNG?raw=true) {:.aligncenter}
+![01](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi01.PNG?raw=true) 
 
 
 
@@ -14,9 +14,9 @@
   * java AWT를 이용한 GUI 구현(Frame만)
  
 
-![02](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi02.png?raw=true) {:.aligncenter}
+![02](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi02.png?raw=true) 
 
-![03](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi03.png?raw=true) {:.aligncenter}
+![03](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi03.png?raw=true) 
 
 
 ---
@@ -32,9 +32,9 @@
   * 클래스다이어그램과 결과창
   
 
-![05](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi05.png) {:.aligncenter}
+![05](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi05.png) 
 
-![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png) {:.aligncenter}
+![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png)
 
 
 ---
@@ -46,10 +46,9 @@
     * 계산버튼 클릭 시 연산작업 후 결과값을 Dialog에게 전달해서 결과 출력
 
 
-![06](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi06.png) {:.aligncenter}
+![06](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi06.png)
 
-![07](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi07.png) {:.aligncenter}
-
+![07](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi07.png)
 
 ---
 
@@ -60,9 +59,9 @@
     * AWT에 비해 조금 더 향상된 컴포넌트를 보여준다.
 
 
-![08-classDiagram](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi08.png) {:.aligncenter}
+![08-classDiagram](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi08.png)
 
-![09-Swing](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi09.png) {:.aligncenter}
+![09-Swing](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi09.png)
 
 
 * **2019-12-15**
@@ -72,8 +71,7 @@
     * 문자열 입력시 MessageDialog로 재입력 유도
 
 
-![10](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi10.png) {:.aligncenter}
-
+![10](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi10.png) 
 
 ### 추가구현 과제
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
