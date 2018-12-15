@@ -45,10 +45,28 @@
 
 ---
 
+* **2018-12-14**
+  * Swing을 이용하여 구현
+    * Dialog로 직접 InputDialog, MessageDialog, ConfirmDialog를 구현할 필요가 없어짐(JOptionPane 이용)
+    * 따라서 아래 클래스 다이어그램처럼 구현 내용이 줄어진다
+    * AWT에 비해 조금 더 향상된 컴포넌트를 보여준다.
+
+![08-classDiagram](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi08.png)
+
+![09-Swing](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi09.png)
+
+
+* **2019-12-15**
+  * "BMI란?"을 Label이 아닌 TitledBorder로 구현
+  * 예외처리
+    * 키나 몸무게 TextField에 입력이 안됐을 시 Message Dialog 띄우고 Focus처리
+    * 문자열 입력시 MessageDialog로 재입력 유도
+
+![10](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi10.png)
 
 ### 추가구현 과제
-* swing을 이용한 GUI 구현 
+* Swing 구현 내용에서 JButton을 이미지로 구현해보기
 * 히스토리 구현
 * 파일출력 구현
-* 메뉴바를 이용 기존 toyProjectLotto와 통합처리
+* 메뉴바를 이용 toyProjectLotto와 통합하기
 
