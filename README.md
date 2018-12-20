@@ -81,7 +81,7 @@
     * ArrayList로 결과를 저장 후 BMIHistory에 전달 후 JTable로 결과 표시
     * 현재 history 결과창 출력시 빈 row가 들어가는 이슈있음(보완예정)
 
-![11](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi11.png) 
+![11](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi11.png?raw=true) 
 
 ![12](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi12.png) 
 
