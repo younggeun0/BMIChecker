@@ -73,6 +73,21 @@
 
 ![10](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi10.png) 
 
+---
+
+* **2018-12-20**
+  * 히스토리 UI 디자인, Swing을 이용한 다이얼로그 구현
+  * 입력 내용(키,몸무게)과 실행 날짜, BMI결과값을 HistoryVO로 객체로 저장
+    * ArrayList로 결과를 저장 후 BMIHistory에 전달 후 JTable로 결과 표시
+    * 현재 history 결과창 출력시 빈 row가 들어가는 이슈있음(보완예정)
+
+![11](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi11.png) 
+
+![12](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi12.png) 
+
+![13](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi13.png) 
+
+
 ### 추가구현 과제
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
 * 히스토리 구현
