@@ -1,19 +1,25 @@
 package swing_evt;
 
-import java.awt.Transparency;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import swing_view.BMIHistory;
 import swing_view.BMIView;
 
 public class BMIEvt implements ActionListener {
 
 	private BMIView bv;
-
+	private List<HistoryVO> listRow;
+	
 	public BMIEvt(BMIView bv) {
 		this.bv = bv;
+		listRow = new ArrayList<HistoryVO>();
 	}
 
 	@Override
@@ -68,6 +74,11 @@ public class BMIEvt implements ActionListener {
 		if (e.getSource() == bv.getJbExit()) {
 			bv.dispose();
 		}
+
+		if (e.getSource() == bv.getJbHistory()) {
+			// history버튼 클릭시 BMIHistory 호출
+			new BMIHistory(bv, listRow);
+		}
 	}
 
 	public void bmiCal() {
@@ -81,6 +92,8 @@ public class BMIEvt implements ActionListener {
 
 			double bmiResult = 0;
 			String textResult = null;
+			
+			
 
 			bmiResult = weight / (height * height);
 
@@ -97,6 +110,23 @@ public class BMIEvt implements ActionListener {
 			}
 
 			JOptionPane.showMessageDialog(bv, textResult, "결과", JOptionPane.INFORMATION_MESSAGE);
+			
+			addHistory(height, weight, bmiResult, textResult);
 		}
+	}
+	
+	// list에 HistoryVO 정보를 담고 BMIHistory호출 시 전달
+	public void addHistory(double height, double weight, double bmiResult, String textResult) {
+		// 기록을 담을 HistoryVO 객체
+		HistoryVO hv = new HistoryVO();
+		Date d = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		
+		hv.setDate(sdf.format(d));
+		hv.setHeight(height);
+		hv.setWeight(weight);
+		hv.setBmiNum(bmiResult);
+		hv.setBmiResult(textResult);
+		listRow.add(hv);
 	}
 }

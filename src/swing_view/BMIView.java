@@ -15,7 +15,7 @@ import swing_evt.BMIEvt;
 public class BMIView extends JFrame {
 
 	private JTextField jtfHeight, jtfWeight;
-	private JButton jbCal, jbExit;
+	private JButton jbCal, jbExit, jbHistory;
 	private JTextArea jtaInfo;
 	
 	public BMIView() {
@@ -34,11 +34,13 @@ public class BMIView extends JFrame {
 		jtaInfo.setEditable(false);
 		jtaInfo.setLineWrap(true);
 		
-		ImageIcon iiCal = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbCal.png");
-		ImageIcon iiExit = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbClose.png");
+		// image 아이콘 변경(추후)
+//		ImageIcon iiCal = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbCal.png");
+//		ImageIcon iiExit = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbClose.png");
 		
 		jbCal = new JButton("계산"/*, iiCal*/);
 		jbExit = new JButton("종료"/*, iiExit*/);
+		jbHistory = new JButton("History");
 		
 		jtfHeight = new JTextField();
 		jtfWeight = new JTextField();
@@ -64,9 +66,14 @@ public class BMIView extends JFrame {
 		jbExit.setBounds(255, 210, 80, 40);
 		add(jbExit);
 		
+		////////12-20-2018 History 구현 ///////
+		jbHistory.setBounds(170, 210, 80, 40);
+		add(jbHistory);
+		
 		BMIEvt eventHandler = new BMIEvt(this);
 		jbCal.addActionListener(eventHandler);
 		jbExit.addActionListener(eventHandler);
+		jbHistory.addActionListener(eventHandler);
 		
 		setLayout(null);
 		setResizable(false);
@@ -76,6 +83,9 @@ public class BMIView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	public JButton getJbHistory() {
+		return jbHistory;
+	}
 	public JTextField getJtfHeight() {
 		return jtfHeight;
 	}
