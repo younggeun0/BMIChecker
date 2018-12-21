@@ -91,10 +91,10 @@
 * **2018-12-21**
   * 빈 row가 들어가는 문제 해결
     * listRow.size()를 DefaultTableModel 생성자 파라미터로 줬었기 때문에 추가된 row만큼 빈 row가 생겼었음
-  * 실행시 loadHistory메서드로 history.dat 파일이 존재하는지 확인 후 읽어들임
-		  * 읽은 List데이터를 BMIEvt에 전달, History버튼 눌리면 BMIHistory에 전달, 출력
+  * 실행시 loadHistory메서드로 `history.dat` 파일이 존재하는지 확인 후 읽어들임
+    * 읽은 List데이터를 BMIEvt에 전달, History버튼 눌리면 BMIHistory에 전달, 출력
   * 실행시 저장된 내용을 불러들일지 묻는 Dialog 구현
-		  * history.dat가 존재하면 내용을 읽어들여서 History 버튼 클릭시 history 데이터를 뿌려줌
+    * `history.dat`가 존재하면 내용을 읽어들여서 History 버튼 클릭시 history 데이터를 뿌려줌
   * 종료할때 저장할 경로를 묻고 입력하면 저장, 입력안하면 종료된다.
   
 ![14](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi14.png) 
