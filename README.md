@@ -106,6 +106,5 @@
 
 ### 추가구현 과제
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
-* 해당 프로젝트 디렉토리에 history.dat 형태로 history정보를 저장, 프로그램 실행시 읽어서 기록 유지기능 구현
 * 메뉴바를 이용 toyProjectLotto와 통합하기
 
