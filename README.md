@@ -81,7 +81,7 @@
     * ArrayList로 결과를 저장 후 BMIHistory에 전달 후 JTable로 결과 표시
     * 현재 history 결과창 출력시 빈 row가 들어가는 이슈있음(보완예정)
 
-![11](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi11.png) 
+![11](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi11.png?raw=true) 
 
 ![12](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi12.png) 
 
@@ -90,7 +90,6 @@
 
 ### 추가구현 과제
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
-* 히스토리 구현
-* 파일출력 구현
+* 해당 프로젝트 디렉토리에 history.dat 형태로 history정보를 저장, 프로그램 실행시 읽어서 기록 유지기능 구현
 * 메뉴바를 이용 toyProjectLotto와 통합하기
 
