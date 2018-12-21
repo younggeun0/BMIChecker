@@ -105,6 +105,8 @@
 
 
 ### 추가구현 과제
+* history.dat를 직렬화 사용 Object형태로 내보낼 것
+* 재구성한 클래스다이어그램 추가
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
 * 메뉴바를 이용 toyProjectLotto와 통합하기
 
