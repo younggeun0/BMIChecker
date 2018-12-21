@@ -1,5 +1,7 @@
 package swing_view;
 
+import java.util.List;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,6 +13,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import swing_evt.BMIEvt;
+import swing_evt.HistoryVO;
 
 public class BMIView extends JFrame {
 
@@ -18,7 +21,7 @@ public class BMIView extends JFrame {
 	private JButton jbCal, jbExit, jbHistory;
 	private JTextArea jtaInfo;
 	
-	public BMIView() {
+	public BMIView(List<HistoryVO> listRow) {
 		
 		super("BMI Checker");
 		JLabel jlHeight = new JLabel("Ű(cm) : ");
@@ -70,7 +73,7 @@ public class BMIView extends JFrame {
 		jbHistory.setBounds(170, 210, 80, 40);
 		add(jbHistory);
 		
-		BMIEvt eventHandler = new BMIEvt(this);
+		BMIEvt eventHandler = new BMIEvt(this, listRow);
 		jbCal.addActionListener(eventHandler);
 		jbExit.addActionListener(eventHandler);
 		jbHistory.addActionListener(eventHandler);

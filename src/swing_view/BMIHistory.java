@@ -10,9 +10,8 @@ import javax.swing.table.DefaultTableModel;
 
 import swing_evt.HistoryVO;
 
-///////////////////////////// 12-20-2018 BMI History 구현 ///////////////////////////
+///////////////////////////// 12-21-2018 BMI History 구현 ///////////////////////////
 public class BMIHistory {
-	
 	private BMIView bv;
 	private DefaultTableModel dtm;
 	private List<HistoryVO> listRow;
@@ -20,7 +19,6 @@ public class BMIHistory {
 	public BMIHistory(BMIView bv, List<HistoryVO> listRow) {
 		this.bv = bv;
 		this.listRow = listRow;
-		
 		showHistory();
 	}
 	
@@ -28,8 +26,8 @@ public class BMIHistory {
 	public void showHistory() {
 		String[] columnNames = { "날짜","키","몸무게","BMI지수","결과" };
 		String[] rowData = new String[columnNames.length]; 
-		dtm = new DefaultTableModel(columnNames, listRow.size()) {
-			// 변경 불가능하게 막음
+		dtm = new DefaultTableModel(columnNames, 0) {
+			// 테이블 변경 막음
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;
@@ -46,11 +44,10 @@ public class BMIHistory {
 		}
 		
 		JTable jt = new JTable(dtm);
-		
+		JScrollPane jsp = new JScrollPane(jt);
+		// 날짜, 결과 컬럼 폭 조정
 		jt.getColumnModel().getColumn(0).setPreferredWidth(120);
 		jt.getColumnModel().getColumn(4).setPreferredWidth(120);
-		
-		JScrollPane jsp = new JScrollPane(jt);
 		JOptionPane.showMessageDialog(bv, jsp, "BMI Checker - History", JOptionPane.PLAIN_MESSAGE);
 	}
 }
