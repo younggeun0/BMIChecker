@@ -1,8 +1,8 @@
 package swing_evt;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class HistoryVO {
+public class HistoryVO implements Serializable {
 	
 	private String date;
 	private double height;

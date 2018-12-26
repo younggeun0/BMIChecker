@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -150,7 +152,7 @@ public class BMIEvt implements ActionListener {
 	// saveHistory는 종료전에 수행, addHistory는 Confirm OK할때 수행
 	public void saveHistory() {
 		
-		BufferedWriter bw = null;
+		ObjectOutputStream oos = null;
 		
 		try {
 			
@@ -163,24 +165,19 @@ public class BMIEvt implements ActionListener {
 				return;
 			}
 			
-			bw = new BufferedWriter(new FileWriter(path+"/history.dat"));
+			oos = new ObjectOutputStream(new FileOutputStream(
+					new File(path+"/history.dat")));
 
 			// "날짜","키","몸무게","BMI지수","결과" 
 			// listRow로부터 HistoryVO 데이터를 가져와서 CSV String 데이터로 가공
-			StringBuilder saveData = new StringBuilder();
 			HistoryVO tempVO = null;
 			
 			for(int i=0; i<listRow.size(); i++) {
 				tempVO = listRow.get(i);
-				saveData.append(tempVO.getDate()).append(",")
-				 .append(tempVO.getHeight()).append(",")
-				 .append(tempVO.getWeight()).append(",")
-				 .append(tempVO.getBmiNum()).append(",")
-				 .append(tempVO.getBmiResult()).append("\n");
+				oos.writeObject(tempVO);
+				oos.flush();
 			}
 			
-			bw.write(saveData.toString());
-			bw.flush();
 			exitFlag = true;
 		} catch (NullPointerException npe) { 
 			JOptionPane.showMessageDialog(bv, "저장하지 않고 종료합니다.");
@@ -188,9 +185,9 @@ public class BMIEvt implements ActionListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			if(bw!=null) {
+			if(oos!=null) {
 				try {
-					bw.close();
+					oos.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

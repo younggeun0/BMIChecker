@@ -103,10 +103,13 @@
 
 ![16](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi16.png) 
 
+* **2018-12-26**
+  * history.dat를 직렬화 사용 Object형태로 저장, 읽어오기 구현
+  * 객체가 직렬화되어 저장, 쉽게 알아볼 수 없어서 보안성향상
+
+![17](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi17.png) 
 
 ### 추가구현 과제
-* history.dat를 직렬화 사용 Object형태로 내보낼 것
 * 재구성한 클래스다이어그램 추가
 * Swing 구현 내용에서 JButton을 이미지로 구현해보기
-* 메뉴바를 이용 toyProjectLotto와 통합하기
 
