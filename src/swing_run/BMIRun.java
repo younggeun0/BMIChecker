@@ -1,10 +1,11 @@
 package swing_run;
 
-import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +17,10 @@ import swing_view.BMIView;
 public class BMIRun {
 	
 	// history.dat 파일을 읽어오는 코드 구현
-	public List<HistoryVO> loadHistory() throws IOException, FileNotFoundException, NullPointerException {
+	public List<HistoryVO> loadHistory() throws ClassNotFoundException, IOException, FileNotFoundException, NullPointerException {
 		
-		BufferedReader br = null;
-		String temp = null;
-		String[] rowData = null;
-		HistoryVO hv = null;
+		ObjectInputStream ois = null;
+		HistoryVO temp = null;
 		List<HistoryVO> listRow = null;
 		
 		int select = JOptionPane.showConfirmDialog(null, "불러들일 history.dat 파일이 있으십니까?");
@@ -36,24 +35,22 @@ public class BMIRun {
 			
 			if(file.isDirectory()) {
 				try {
-					hv = new HistoryVO();
+					temp = new HistoryVO();
 					listRow = new ArrayList<HistoryVO>();
-					br = new BufferedReader(new FileReader(historyDatPath));
+					ois = new ObjectInputStream(new FileInputStream(new File(historyDatPath)));
 					
-					while( (temp = br.readLine()) != null) {
-						// 읽어들인걸 잘라낸다음에 String[]로 저장, list에 바로 저장,그 리스트를 전달
-						rowData = temp.split(",");
-						
-						hv.setDate(rowData[0]);
-						hv.setDate(rowData[0]);
-						hv.setHeight(Double.valueOf(rowData[1]));
-						hv.setWeight(Double.valueOf(rowData[2]));
-						hv.setBmiNum(Double.valueOf(rowData[3]));
-						hv.setBmiResult(rowData[4]);
-						listRow.add(hv);
+					try {
+						while(true) {
+							temp = (HistoryVO)ois.readObject();
+							System.out.println(temp);
+							listRow.add(temp);
+						}
+					} catch (EOFException e) {
+						return listRow;
 					}
+					
 				} finally {
-					if (br != null) br.close();
+					if (ois != null) ois.close();
 				}
 			} else {
 				JOptionPane.showMessageDialog(null, "파일이 아닙니다.");
@@ -76,6 +73,8 @@ public class BMIRun {
 		} catch (FileNotFoundException fnfe) {
 			JOptionPane.showMessageDialog(null, "저장된 history.dat가 없습니다.");
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		new BMIView(listRow);
