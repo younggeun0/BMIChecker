@@ -19,12 +19,10 @@
 ![03](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi03.png?raw=true) 
 
 
----
 
 ## 2018-12-11
 * 종료버튼 event처리 구현
 
----
 
 ## 2018-12-13
 * GUI 디자인(Frame)과 이벤트처리(Listener 인터페이스들) 분리 구현
@@ -37,7 +35,6 @@
 ![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi04.png)
 
 
----
 
 ## 2018-12-13
 * Dialog를 사용한 결과출력 구현
@@ -50,7 +47,6 @@
 
 ![07](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi07.png)
 
----
 
 ## 2018-12-14
 * Swing을 이용하여 구현
@@ -73,7 +69,6 @@
 
 ![10](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi10.png) 
 
----
 
 ## 2018-12-20
 * 히스토리 UI 디자인, Swing을 이용한 다이얼로그 구현
