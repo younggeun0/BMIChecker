@@ -37,10 +37,6 @@ public class BMIView extends JFrame {
 		jtaInfo.setEditable(false);
 		jtaInfo.setLineWrap(true);
 		
-		// image 아이콘 변경(추후)
-//		ImageIcon iiCal = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbCal.png");
-//		ImageIcon iiExit = new ImageIcon("D:/git/repositories/toyProjectBMI/UI/jbClose.png");
-		
 		jbCal = new JButton("계산"/*, iiCal*/);
 		jbExit = new JButton("종료"/*, iiExit*/);
 		jbHistory = new JButton("History");
