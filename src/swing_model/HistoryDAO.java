@@ -13,6 +13,11 @@ public class HistoryDAO {
 	private static HistoryDAO h_dao;
 	
 	private HistoryDAO() {
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static HistoryDAO getInstance() {
