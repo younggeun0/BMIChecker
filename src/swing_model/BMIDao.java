@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryDAO {
+public class BMIDao {
 	
-	private static HistoryDAO h_dao;
+	private static BMIDao b_dao;
 	
-	private HistoryDAO() {
+	private BMIDao() {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {
@@ -20,12 +20,12 @@ public class HistoryDAO {
 		}
 	}
 	
-	public static HistoryDAO getInstance() {
-		if (h_dao == null) {
-			h_dao = new HistoryDAO();
+	public static BMIDao getInstance() {
+		if (b_dao == null) {
+			b_dao = new BMIDao();
 		}
 		
-		return h_dao;
+		return b_dao;
 	}
 	
 	public Connection getConnection() throws SQLException {

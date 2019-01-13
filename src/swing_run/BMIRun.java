@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import swing_model.HistoryDAO;
+import swing_model.BMIDao;
 import swing_model.HistoryVO;
 import swing_view.BMIView;
 
@@ -26,7 +26,7 @@ public class BMIRun {
 		} while(true);
 		
 		// bmi_history 테이블에서 기존에 저장된 DB정보를 읽어오는 method
-		HistoryDAO h_dao = HistoryDAO.getInstance();
+		BMIDao h_dao = BMIDao.getInstance();
 
 		List<HistoryVO> listRow = null;
 		try {

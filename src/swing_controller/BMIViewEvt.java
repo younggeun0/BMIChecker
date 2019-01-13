@@ -19,7 +19,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import swing_model.HistoryDAO;
+import swing_model.BMIDao;
 import swing_model.HistoryInsertVO;
 import swing_model.HistoryVO;
 import swing_view.BMIHistory;
@@ -30,14 +30,14 @@ public class BMIViewEvt implements ActionListener {
 	private BMIView bv;
 	private List<HistoryVO> listRow;
 	private String name;
-	private HistoryDAO h_dao;
+	private BMIDao b_dao;
 	
 	public BMIViewEvt(BMIView bv, List<HistoryVO> listRow, String name) {
 		this.bv = bv;
 		this.listRow = new ArrayList<HistoryVO>();
 		this.name = name;
 		
-		h_dao = HistoryDAO.getInstance();
+		b_dao = BMIDao.getInstance();
 		
 		if (listRow != null)
 			this.listRow = listRow;
@@ -110,11 +110,11 @@ public class BMIViewEvt implements ActionListener {
 				List<HistoryVO> fileDate = loadHistoryFromFile();
 				
 				// 읽어 들인 리스트정보를 DB에 추가
-				int cnt = h_dao.insertLoadData(fileDate);
+				int cnt = b_dao.insertLoadData(fileDate);
 				
 				JOptionPane.showMessageDialog(bv, cnt+"행의 데이터를 추가하였습니다.");
 				listRow.clear();
-				listRow = h_dao.selectAllHistory();
+				listRow = b_dao.selectAllHistory();
 				
 			} catch (ClassNotFoundException e1) {
 				JOptionPane.showMessageDialog(bv, "읽어들일수 있는 파일 형식이 아닙니다.");
@@ -217,10 +217,10 @@ public class BMIViewEvt implements ActionListener {
 		System.out.println(hivo);
 		
 		try {
-			h_dao.insertOneData(hivo);
+			b_dao.insertOneData(hivo);
 			JOptionPane.showMessageDialog(bv, "새 정보가 추가되었습니다.");
 			listRow.clear();
-			listRow = h_dao.selectAllHistory();
+			listRow = b_dao.selectAllHistory();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(bv, "정보를 추가하는데 실패했습니다.");
 			e.printStackTrace();
