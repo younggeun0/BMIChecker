@@ -12,16 +12,16 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import swing_evt.BMIEvt;
-import swing_evt.HistoryVO;
+import swing_controller.BMIViewEvt;
+import swing_model.HistoryVO;
 
 public class BMIView extends JFrame {
 
 	private JTextField jtfHeight, jtfWeight;
-	private JButton jbCal, jbExit, jbHistory;
+	private JButton jbCal, jbExit, jbHistory, jbSaveHistory, jbLoadHistory;
 	private JTextArea jtaInfo;
 	
-	public BMIView(List<HistoryVO> listRow) {
+	public BMIView(List<HistoryVO> listRow, String name) {
 		
 		super("BMI Checker");
 		JLabel jlHeight = new JLabel("키(cm) : ");
@@ -40,6 +40,8 @@ public class BMIView extends JFrame {
 		jbCal = new JButton("계산"/*, iiCal*/);
 		jbExit = new JButton("종료"/*, iiExit*/);
 		jbHistory = new JButton("History");
+		jbSaveHistory = new JButton("저장");
+		jbLoadHistory = new JButton("불러오기");
 		
 		jtfHeight = new JTextField();
 		jtfWeight = new JTextField();
@@ -69,10 +71,19 @@ public class BMIView extends JFrame {
 		jbHistory.setBounds(170, 210, 80, 40);
 		add(jbHistory);
 		
-		BMIEvt eventHandler = new BMIEvt(this, listRow);
-		jbCal.addActionListener(eventHandler);
-		jbExit.addActionListener(eventHandler);
-		jbHistory.addActionListener(eventHandler);
+		////////01-13-2019 DB를 사용한 History SAVE, LOAD 구현 ///////
+		jbSaveHistory.setBounds(10, 210, 60, 40);
+		add(jbSaveHistory);
+		
+		jbLoadHistory.setBounds(75, 210, 90, 40);
+		add(jbLoadHistory);
+		
+		BMIViewEvt bve = new BMIViewEvt(this, listRow, name);
+		jbCal.addActionListener(bve);
+		jbExit.addActionListener(bve);
+		jbHistory.addActionListener(bve);
+		jbSaveHistory.addActionListener(bve);
+		jbLoadHistory.addActionListener(bve);
 		
 		setLayout(null);
 		setResizable(false);
@@ -99,5 +110,11 @@ public class BMIView extends JFrame {
 	}
 	public JTextArea getJtaInfo() {
 		return jtaInfo;
+	}
+	public JButton getJbSaveHistory() {
+		return jbSaveHistory;
+	}
+	public JButton getJbLoadHistory() {
+		return jbLoadHistory;
 	}
 }

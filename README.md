@@ -107,4 +107,55 @@
 
 ![18](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi18.png) 
 
+## 2019-01-13
 
+* JDBC DB 설계 및 저장, 불러오기 구현
+* 프로그램이 시작될 때 이름을 받기
+	* HistoryVO에 name을 추가
+
+![19](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi19.png) 
+
+* HistoryVO 정보를 저장할 테이블 생성
+
+```sql
+-- table 생성
+CREATE TABLE bmi_history (
+  name VARCHAR2(15) NOT NULL,
+  input_date DATE DEFAULT SYSDATE,
+  bmi_result VARCHAR2(100) NOT NULL,
+  height NUMBER(5,2) NOT NULL,
+  weight NUMBER(5,2) NOT NULL,
+  bmi_num NUMBER(5,2) NOT NULL
+);
+
+-- 가데이터 삽입
+INSERT INTO bmi_history(name, bmi_result, height, weight, bmi_num)
+VALUES('test01', 'test_result', 1.0, 1.0, 1.0);
+INSERT INTO bmi_history(name, bmi_result, height, weight, bmi_num)
+VALUES('test02', 'test_result', 1.0, 1.0, 1.0);
+INSERT INTO bmi_history(name, bmi_result, height, weight, bmi_num)
+VALUES('test03', 'test_result', 1.0, 1.0, 1.0);
+INSERT INTO bmi_history(name, bmi_result, height, weight, bmi_num)
+VALUES('test04', 'test_result', 1.0, 1.0, 1.0);
+INSERT INTO bmi_history(name, bmi_result, height, weight, bmi_num)
+VALUES('test05', 'test_result', 1.0, 1.0, 1.0);
+
+-- COMMIT
+COMMIT;
+
+-- 결과 확인    
+SELECT * FROM bmi_history;
+```
+![21](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi21.png) 
+
+
+* DB에 저장된 History 내역을 .dat 파일로 저장하는 "저장" 추가
+* 파일 읽어들여서 DB에 추가하는 "불러오기" 추가
+
+![20](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi20.png) 
+
+![22](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi22.png) 
+
+* JDBC를 추가한 새로운 클래스 다이어그램
+
+![23](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/bmi/bmi23.png) 

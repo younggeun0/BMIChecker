@@ -1,43 +1,56 @@
-package swing_evt;
+package swing_model;
 
 import java.io.Serializable;
 
 public class HistoryVO implements Serializable {
 	
+	private String name;
 	private String date;
 	private double height;
 	private double weight;
 	private double bmiNum;
 	private String bmiResult;
 	
-	public void setDate(String date) {
+	public HistoryVO() {
+	}
+	
+	public HistoryVO(String name, String date, 
+			double height, double weight, double bmiNum, String bmiResult) {
+		this.name = name;
 		this.date = date;
-	}
-	public void setHeight(double height) {
 		this.height = height;
-	}
-	public void setWeight(double weight) {
 		this.weight = weight;
-	}
-	public void setBmiNum(double bmiNum) {
 		this.bmiNum = bmiNum;
-	}
-	public void setBmiResult(String bmiResult) {
 		this.bmiResult = bmiResult;
 	}
+
+	public String getName() {
+		return name;
+	}
+
 	public String getDate() {
 		return date;
 	}
+
 	public double getHeight() {
 		return height;
 	}
+
 	public double getWeight() {
 		return weight;
 	}
+
 	public double getBmiNum() {
 		return bmiNum;
 	}
+
 	public String getBmiResult() {
 		return bmiResult;
+	}
+
+	@Override
+	public String toString() {
+		return "HistoryVO [name=" + name + ", date=" + date + ", height=" + height + ", weight=" + weight + ", bmiNum="
+				+ bmiNum + ", bmiResult=" + bmiResult + "]";
 	}
 }

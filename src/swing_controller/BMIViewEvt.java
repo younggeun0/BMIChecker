@@ -1,13 +1,21 @@
-package swing_evt;
+package swing_controller;
 
+import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,19 +23,25 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import swing_model.HistoryDAO;
+import swing_model.HistoryInsertVO;
+import swing_model.HistoryVO;
 import swing_view.BMIHistory;
 import swing_view.BMIView;
 
-public class BMIEvt implements ActionListener {
+public class BMIViewEvt implements ActionListener {
 
 	private BMIView bv;
 	private List<HistoryVO> listRow;
-	private boolean exitFlag;
+	private String name;
+	private HistoryDAO h_dao;
 	
-	public BMIEvt(BMIView bv, List<HistoryVO> listRow) {
+	public BMIViewEvt(BMIView bv, List<HistoryVO> listRow, String name) {
 		this.bv = bv;
 		this.listRow = new ArrayList<HistoryVO>();
-		exitFlag = false;
+		this.name = name;
+		
+		h_dao = HistoryDAO.getInstance();
 		
 		if (listRow != null)
 			this.listRow = listRow;
@@ -83,17 +97,84 @@ public class BMIEvt implements ActionListener {
 			}
 		}
 		if (e.getSource() == bv.getJbExit()) {
-			saveHistory();
-			
-			if(exitFlag) {
-				bv.dispose();
-			}
+			bv.dispose();
 		}
 
 		if (e.getSource() == bv.getJbHistory()) {
 			// history버튼 클릭시 BMIHistory 호출
 			new BMIHistory(bv, listRow);
 		}
+		
+		if (e.getSource() == bv.getJbSaveHistory()) {
+			saveHistory();
+		}
+		
+		if (e.getSource() == bv.getJbLoadHistory()) {
+			try {
+				List<HistoryVO> fileDate = loadHistoryFromFile();
+				
+				// 읽어 들인 리스트정보를 DB에 추가
+				int cnt = h_dao.insertLoadData(fileDate);
+				
+				JOptionPane.showMessageDialog(bv, cnt+"행의 데이터를 추가하였습니다.");
+				listRow.clear();
+				listRow = h_dao.selectAllHistory();
+				
+			} catch (ClassNotFoundException e1) {
+				JOptionPane.showMessageDialog(bv, "읽어들일수 있는 파일 형식이 아닙니다.");
+				e1.printStackTrace();
+			} catch (FileNotFoundException e1) {
+				JOptionPane.showMessageDialog(bv, "파일이 존재하지 않습니다.");
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(bv, "파일 불러오기에 실패했습니다.");
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				JOptionPane.showMessageDialog(bv, "죄송합니다. 추가에 실패했습니다.");
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	// history.dat 파일을 읽어오는 코드
+	public List<HistoryVO> loadHistoryFromFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+
+		FileDialog fd = new FileDialog(bv, "History 불러오기", FileDialog.LOAD);
+		fd.setVisible(true);
+
+		String path = fd.getDirectory()+fd.getFile();
+		System.out.println(path);
+		
+		File file = new File(path);
+
+		List<HistoryVO> list = null;
+		if (file.isFile()) {
+			ObjectInputStream ois = null;
+			HistoryVO tempVO = null;
+			list = new ArrayList<HistoryVO>();
+			
+			try {
+				ois = new ObjectInputStream(new FileInputStream(file));
+
+				while (true) {
+					try {
+						tempVO = (HistoryVO) ois.readObject();
+						list.add(tempVO);
+					} catch (EOFException e) {
+						break;
+					}
+				}
+				
+			} finally {
+				if (ois != null)
+					ois.close();
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "파일이 아닙니다.");
+		}
+
+		System.out.println(list);
+		return list;
 	}
 
 	public void bmiCal() {
@@ -135,28 +216,43 @@ public class BMIEvt implements ActionListener {
 	// list에 HistoryVO 정보를 담고 BMIHistory호출 시 전달
 	public void addHistory(double height, double weight, double bmiResult, String textResult) {
 		// 기록을 담을 HistoryVO 객체
-		HistoryVO hv = new HistoryVO();
 		Date d = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		HistoryInsertVO hivo = 
+			new HistoryInsertVO(name, height, weight, bmiResult, textResult);
+		System.out.println(hivo);
 		
-		hv.setDate(sdf.format(d));
-		hv.setHeight(height);
-		hv.setWeight(weight);
-		hv.setBmiNum(bmiResult);
-		hv.setBmiResult(textResult);
-		listRow.add(hv);
+		try {
+			h_dao.insertOneData(hivo);
+			JOptionPane.showMessageDialog(bv, "새 정보가 추가되었습니다.");
+			listRow.clear();
+			listRow = h_dao.selectAllHistory();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(bv, "정보를 추가하는데 실패했습니다.");
+			e.printStackTrace();
+		}
 	}
 	
 	// 실행되면 listRow가 초기화되고(로드), saveHistory가 호출되면 기존 listRow정보와
 	// 결과 눌렀을 때 JOptionPane ConfirmDialog 띄우고, 추가한다 하면 메소드 호출해서 추가하도록 구현
 	// saveHistory는 종료전에 수행, addHistory는 Confirm OK할때 수행
 	public void saveHistory() {
-		
 		ObjectOutputStream oos = null;
 		
 		try {
-			
-			String path = JOptionPane.showInputDialog("저장할 경로를 입력해주세요.예)C:/dev/home");
+			FileDialog fd = new FileDialog(bv, "History 저장 경로선택", FileDialog.SAVE);
+			fd.setFilenameFilter(new FilenameFilter() {
+				
+				@Override
+				public boolean accept(File dir, String name) {
+					return new File(dir, name).isDirectory();
+				}
+			});
+			fd.setVisible(true);
+
+			// directory 정보만 읽어와서 그 곳에 저장함
+			// 그러기 위해선 파일명을 입력해야 하는 이슈 ///////////////
+			String path = fd.getDirectory();
 			
 			File file = new File(path);
 			
@@ -166,7 +262,7 @@ public class BMIEvt implements ActionListener {
 			}
 			
 			oos = new ObjectOutputStream(new FileOutputStream(
-					new File(path+"/history.dat")));
+					new File(path+"/"+new Date().getTime()+"_history.dat")));
 
 			// "날짜","키","몸무게","BMI지수","결과" 
 			// listRow로부터 HistoryVO 데이터를 가져와서 CSV String 데이터로 가공
@@ -178,7 +274,6 @@ public class BMIEvt implements ActionListener {
 				oos.flush();
 			}
 			
-			exitFlag = true;
 		} catch (NullPointerException npe) { 
 			JOptionPane.showMessageDialog(bv, "저장하지 않고 종료합니다.");
 			bv.dispose();
