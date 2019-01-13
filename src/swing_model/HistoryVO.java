@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class HistoryVO implements Serializable {
 	
+	private static final long serialVersionUID = 705316501072181819L;
 	private String name;
 	private String date;
 	private double height;

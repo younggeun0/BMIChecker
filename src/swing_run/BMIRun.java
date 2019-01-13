@@ -25,9 +25,6 @@ public class BMIRun {
 			
 		} while(true);
 		
-
-		BMIRun br = new BMIRun();
-		
 		// bmi_history 테이블에서 기존에 저장된 DB정보를 읽어오는 method
 		HistoryDAO h_dao = HistoryDAO.getInstance();
 

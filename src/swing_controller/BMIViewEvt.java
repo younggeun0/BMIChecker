@@ -3,20 +3,16 @@ package swing_controller;
 import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -216,8 +212,6 @@ public class BMIViewEvt implements ActionListener {
 	// list에 HistoryVO 정보를 담고 BMIHistory호출 시 전달
 	public void addHistory(double height, double weight, double bmiResult, String textResult) {
 		// 기록을 담을 HistoryVO 객체
-		Date d = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		HistoryInsertVO hivo = 
 			new HistoryInsertVO(name, height, weight, bmiResult, textResult);
 		System.out.println(hivo);

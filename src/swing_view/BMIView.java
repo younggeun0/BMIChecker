@@ -15,6 +15,7 @@ import javax.swing.border.TitledBorder;
 import swing_controller.BMIViewEvt;
 import swing_model.HistoryVO;
 
+@SuppressWarnings("serial")
 public class BMIView extends JFrame {
 
 	private JTextField jtfHeight, jtfWeight;

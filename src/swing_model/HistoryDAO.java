@@ -69,8 +69,6 @@ public class HistoryDAO {
 	}
 	
 	public void insertOneData(HistoryInsertVO hivo) throws SQLException {
-		boolean flag = false;
-		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 				

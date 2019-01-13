@@ -2,6 +2,7 @@ package swing_model;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class HistoryInsertVO implements Serializable {
 	
 	private String name;
